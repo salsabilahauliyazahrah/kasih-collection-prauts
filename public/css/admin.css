@@ -1,0 +1,358 @@
+/* admin.css — Kasih Collection Admin Panel */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Jost:wght@300;400;500;600&display=swap');
+
+:root {
+    --rose:      #c9956b;
+    --rose-lt:   #e8c9b0;
+    --rose-dk:   #a57347;
+    --cream:     #faf6f1;
+    --cream-dk:  #f0e9e0;
+    --charcoal:  #1e1a18;
+    --muted:     #8a7e75;
+    --white:     #ffffff;
+    --danger:    #c0634e;
+    --success:   #6a9b7e;
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body:    'Jost', sans-serif;
+    --nav-h: 68px;
+    --t: 0.28s ease;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: var(--font-body);
+    background: var(--cream);
+    color: var(--charcoal);
+    min-height: 100vh;
+}
+
+/* scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--cream-dk); }
+::-webkit-scrollbar-thumb { background: var(--rose-lt); border-radius: 4px; }
+
+/* bagian navbar */
+.navbar {
+    background: var(--charcoal) !important;
+    height: var(--nav-h);
+    padding: 0 28px;
+    border-bottom: 2px solid var(--rose);
+    box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+}
+.navbar-brand {
+    font-family: var(--font-display) !important;
+    font-style: italic;
+    font-size: 1.5rem !important;
+    color: var(--rose-lt) !important;
+    letter-spacing: 1px;
+}
+.navbar span {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.7);
+    font-weight: 300;
+    letter-spacing: 0.5px;
+}
+
+/* bagian container */
+.container {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 32px;
+    margin-top: 28px;
+    margin-bottom: 28px;
+    box-shadow: 0 6px 30px rgba(0,0,0,0.06);
+    border: 1px solid var(--cream-dk);
+}
+
+/* bagian header admin */
+.header-admin {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 28px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--cream-dk);
+}
+.header-admin h2 {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--charcoal);
+    letter-spacing: 0.5px;
+    line-height: 1;
+}
+
+h2 {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--charcoal);
+    margin-bottom: 24px;
+}
+
+/* bagian tabel */
+.table {
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--white);
+    border: 1px solid var(--cream-dk);
+}
+.table thead th {
+    background: var(--charcoal) !important;
+    color: var(--rose-lt) !important;
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 14px 16px;
+    border: none;
+}
+.table tbody td {
+    padding: 14px 16px;
+    vertical-align: middle;
+    border-bottom: 1px solid var(--cream-dk);
+    font-size: 0.9rem;
+}
+.table tbody tr:last-child td { border-bottom: none; }
+.table tbody tr {
+    transition: background var(--t);
+}
+.table tbody tr:hover { background: var(--cream); }
+
+/* bagian gambar produk */
+.product-img {
+    width: 64px;
+    height: 64px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid var(--cream-dk);
+    transition: transform var(--t), box-shadow var(--t);
+}
+.product-img:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+/* bagian harga */
+.fw-bold.text-success {
+    color: var(--rose-dk) !important;
+    font-size: 0.9rem;
+}
+
+/* bagian badge */
+.badge {
+    border-radius: 3px;
+    padding: 4px 10px;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin: 2px;
+}
+.badge.bg-dark {
+    background: var(--cream-dk) !important;
+    color: var(--rose-dk) !important;
+}
+.badge.bg-secondary {
+    background: var(--cream-dk) !important;
+    color: var(--muted) !important;
+}
+.badge.bg-info {
+    background: rgba(106, 155, 126, 0.15) !important;
+    color: var(--success) !important;
+    border: 1px solid rgba(106,155,126,0.3);
+}
+
+/* bagian buttons */
+.btn {
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    border-radius: 4px;
+    padding: 8px 16px;
+    transition: all var(--t);
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn:active { transform: translateY(0); }
+
+.btn-success {
+    background: var(--rose) !important;
+    color: var(--white) !important;
+    border-color: var(--rose) !important;
+}
+.btn-success:hover {
+    background: var(--rose-dk) !important;
+    border-color: var(--rose-dk) !important;
+    box-shadow: 0 4px 12px rgba(201,149,107,0.35);
+}
+
+.btn-primary {
+    background: transparent !important;
+    color: var(--charcoal) !important;
+    border-color: var(--charcoal) !important;
+}
+.btn-primary:hover {
+    background: var(--charcoal) !important;
+    color: var(--white) !important;
+}
+
+.btn-danger {
+    background: transparent !important;
+    color: var(--danger) !important;
+    border-color: var(--danger) !important;
+}
+.btn-danger:hover {
+    background: var(--danger) !important;
+    color: var(--white) !important;
+}
+
+.btn-secondary {
+    background: transparent !important;
+    color: var(--muted) !important;
+    border-color: var(--cream-dk) !important;
+}
+.btn-secondary:hover {
+    background: var(--cream-dk) !important;
+    color: var(--charcoal) !important;
+}
+
+.btn-sm { padding: 5px 12px; font-size: 0.7rem; }
+
+/* bagian alert */
+.alert-success {
+    background: rgba(106,155,126,0.1);
+    color: var(--success);
+    border: 1px solid rgba(106,155,126,0.3);
+    border-radius: 8px;
+    font-size: 0.88rem;
+    padding: 12px 18px;
+}
+
+/* bagian form */
+.form-container {
+    background: var(--white);
+    padding: 36px;
+    border-radius: 14px;
+    box-shadow: 0 6px 30px rgba(0,0,0,0.06);
+    border: 1px solid var(--cream-dk);
+    max-width: 680px;
+    margin: 0 auto;
+}
+
+/* bagian form labels */
+label, .form-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 6px;
+    display: block;
+}
+
+/* bagian inputs */
+.form-control, .form-select {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    border: 1px solid var(--cream-dk);
+    border-radius: 6px;
+    padding: 10px 14px;
+    background: var(--cream);
+    color: var(--charcoal);
+    transition: border-color var(--t), box-shadow var(--t), background var(--t);
+}
+.form-control:focus, .form-select:focus {
+    border-color: var(--rose);
+    background: var(--white);
+    box-shadow: 0 0 0 3px rgba(201,149,107,0.12);
+    outline: none;
+}
+textarea.form-control { min-height: 100px; resize: vertical; }
+
+/* bagian checkboxes */
+.form-check-input {
+    border-color: var(--rose-lt);
+    width: 16px; height: 16px;
+    margin-top: 2px;
+    cursor: pointer;
+}
+.form-check-input:checked {
+    background-color: var(--rose);
+    border-color: var(--rose);
+}
+.form-check-label {
+    font-size: 0.85rem;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--charcoal);
+    cursor: pointer;
+    font-weight: 400;
+}
+
+/* bagian dark mode */
+body.dark-mode { background: #14110f; color: #ede8e3; }
+body.dark-mode .container {
+    background: #1e1a18;
+    border-color: #2a2320;
+    box-shadow: 0 6px 30px rgba(0,0,0,0.25);
+}
+body.dark-mode .table { background: #1e1a18; border-color: #2a2320; }
+body.dark-mode .table tbody td { border-bottom-color: #2a2320; }
+body.dark-mode .table tbody tr:hover { background: #252118; }
+body.dark-mode .form-control, body.dark-mode .form-select {
+    background: #252118;
+    border-color: #3a322a;
+    color: #ede8e3;
+}
+body.dark-mode .form-control:focus { background: #2a2320; }
+body.dark-mode .form-container { background: #1e1a18; border-color: #2a2320; }
+body.dark-mode .header-admin { border-bottom-color: #2a2320; }
+body.dark-mode .badge.bg-dark { background: #2a2320 !important; }
+body.dark-mode label, body.dark-mode .form-label { color: #9a8e85; }
+body.dark-mode .btn-primary {
+    color: #ede8e3 !important;
+    border-color: #ede8e3 !important;
+}
+body.dark-mode .btn-secondary {
+    color: var(--muted) !important;
+    border-color: #2a2320 !important;
+}
+
+/* bagian theme toggle */
+#btn-theme {
+    font-size: 0.78rem;
+    letter-spacing: 1px;
+}
+
+
+/* tampilan gambar di bagian edit produk */
+.image-box {
+    width: 100%;
+    height: 300px;
+    aspect-ratio: 4 / 3;
+    border: 2px dashed var(--cream-dk);
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--cream);
+    cursor: pointer;
+}
+
+.preview-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; 
+    display: block;
+}

@@ -1,0 +1,442 @@
+/* landing.css — Kasih Collection */
+
+:root {
+    --rose:     #c9956b;
+    --rose-lt:  #e8c9b0;
+    --cream:    #faf6f1;
+    --cream-dk: #f0e9e0;
+    --charcoal: #1e1a18;
+    --muted:    #7a6e65;
+    --white:    #ffffff;
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body:    'Jost', sans-serif;
+    --nav-h:    70px;
+    --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* bagian untuk reset */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: var(--font-body);
+    background: var(--cream);
+    color: var(--charcoal);
+    overflow-x: hidden;
+}
+
+/* bagian navbar */
+.kc-navbar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: var(--nav-h);
+    background: transparent;
+    transition: var(--transition);
+    z-index: 1000;
+    border-bottom: 1px solid transparent;
+}
+.kc-navbar.scrolled {
+    background: rgba(250, 246, 241, 0.96);
+    backdrop-filter: blur(12px);
+    border-bottom-color: rgba(201, 149, 107, 0.2);
+    box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+}
+
+.logo-script {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.5rem;
+    color: var(--rose);
+    letter-spacing: 1px;
+    margin-right: 4px;
+}
+.logo-sans {
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 0.65rem;
+    letter-spacing: 4px;
+    color: var(--charcoal);
+    vertical-align: middle;
+    text-transform: uppercase;
+}
+
+.nav-icon-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: none;
+    border: none;
+    color: var(--charcoal);
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 6px 10px;
+    border-radius: 4px;
+    transition: var(--transition);
+}
+.nav-icon-btn:hover { color: var(--rose); }
+
+.user-pill {
+    background: var(--cream-dk);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--charcoal);
+}
+
+/* bagian tombol utama */
+.kc-btn-primary {
+    background: var(--rose);
+    color: var(--white);
+    border: none;
+    padding: 8px 20px;
+    border-radius: 3px;
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: var(--transition);
+}
+.kc-btn-primary:hover { background: #b07d55; color: var(--white); }
+
+.kc-btn-outline {
+    background: transparent;
+    color: var(--charcoal);
+    border: 1px solid var(--charcoal);
+    padding: 7px 18px;
+    border-radius: 3px;
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: var(--transition);
+}
+.kc-btn-outline:hover { background: var(--charcoal); color: var(--white); }
+
+/* bagian hero */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    background:
+        linear-gradient(160deg, rgba(30,26,24,0.55) 0%, rgba(201,149,107,0.2) 100%),
+        url('https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=1600&q=80') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 70% 50%, rgba(201,149,107,0.15), transparent 70%);
+}
+.hero-content {
+    position: relative;
+    text-align: center;
+    color: var(--white);
+    animation: heroFade 1.2s ease both;
+}
+@keyframes heroFade {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+.hero-eyebrow {
+    font-family: var(--font-body);
+    font-weight: 300;
+    font-size: 0.78rem;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--rose-lt);
+    margin-bottom: 16px;
+}
+.hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(3.5rem, 10vw, 7rem);
+    font-weight: 300;
+    line-height: 0.95;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+}
+.hero-title em {
+    display: block;
+    font-style: italic;
+    color: var(--rose-lt);
+    font-size: 0.8em;
+}
+.hero-sub {
+    font-family: var(--font-body);
+    font-weight: 300;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    opacity: 0.85;
+    margin-bottom: 40px;
+}
+.hero-cta {
+    display: inline-block;
+    background: transparent;
+    color: var(--white);
+    border: 1px solid rgba(255,255,255,0.7);
+    padding: 14px 40px;
+    border-radius: 2px;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: var(--transition);
+}
+.hero-cta:hover {
+    background: var(--rose);
+    border-color: var(--rose);
+    color: var(--white);
+}
+.hero-scroll-hint {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,0.6);
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+.scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.6), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+}
+@keyframes scrollPulse {
+    0%, 100% { opacity: 0.4; transform: scaleY(1); }
+    50% { opacity: 1; transform: scaleY(1.2); }
+}
+
+/* bagian stats */
+.stats-section {
+    padding: 60px 0;
+    background: var(--charcoal);
+}
+.stat-item {
+    padding: 20px;
+}
+.stat-number {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--rose);
+    line-height: 1;
+    margin-bottom: 6px;
+}
+.stat-label {
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+}
+
+/* bagian header section */
+.products-section {
+    padding: 90px 0 80px;
+}
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+.section-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 12px;
+}
+.section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 300;
+    color: var(--charcoal);
+    margin-bottom: 20px;
+}
+.section-divider {
+    width: 50px;
+    height: 1px;
+    background: var(--rose);
+    margin: 0 auto;
+}
+
+/* bagian product cards */
+.product-col {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.product-col.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.product-card {
+    background: var(--white);
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    transition: box-shadow var(--transition), transform var(--transition);
+}
+.product-card:hover {
+    box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+    transform: translateY(-4px);
+}
+
+.product-img-wrap {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 3/4;
+}
+.product-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.product-card:hover .product-img {
+    transform: scale(1.05);
+}
+.product-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(30,26,24,0.45);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 28px;
+    opacity: 0;
+    transition: opacity var(--transition);
+}
+.product-card:hover .product-overlay {
+    opacity: 1;
+}
+.overlay-btn {
+    background: var(--white);
+    color: var(--charcoal);
+    border: none;
+    padding: 10px 28px;
+    border-radius: 2px;
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: var(--transition);
+    transform: translateY(10px);
+    transition: background 0.25s, color 0.25s, transform 0.35s;
+}
+.product-card:hover .overlay-btn {
+    transform: translateY(0);
+}
+.overlay-btn:hover {
+    background: var(--rose);
+    color: var(--white);
+}
+
+.product-categories {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+.cat-tag {
+    background: rgba(250,246,241,0.9);
+    color: var(--rose);
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 2px;
+}
+
+.product-info {
+    padding: 18px 20px 20px;
+    border-top: 1px solid var(--cream-dk);
+}
+.product-name {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: var(--charcoal);
+    margin-bottom: 6px;
+}
+.product-price {
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--rose);
+    letter-spacing: 0.5px;
+    margin: 0;
+}
+
+/* bagian halaman kosong */
+.empty-state {
+    padding: 80px 20px;
+    color: var(--muted);
+    font-size: 1rem;
+}
+
+/* bagian footer */
+.kc-footer {
+    background: var(--charcoal);
+    color: var(--white);
+    text-align: center;
+    padding: 50px 20px;
+}
+.kc-footer .logo-script { font-size: 2rem; }
+.kc-footer .logo-sans { color: rgba(255,255,255,0.5); }
+.footer-tagline {
+    font-size: 0.82rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+    color: rgba(255,255,255,0.5);
+    margin: 14px 0 8px;
+}
+.footer-copy {
+    font-size: 0.72rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    margin: 0;
+}
+
+/* bagian dark mode */
+body.dark-mode {
+    background: #14110f;
+    color: #ede8e3;
+}
+body.dark-mode .kc-navbar.scrolled {
+    background: rgba(20,17,15,0.96);
+}
+body.dark-mode .logo-sans,
+body.dark-mode .nav-icon-btn,
+body.dark-mode .kc-btn-outline { color: #ede8e3; }
+body.dark-mode .stats-section { background: #0e0c0a; }
+body.dark-mode .product-card {
+    background: #1e1a18;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+body.dark-mode .product-info { border-top-color: #2a2320; }
+body.dark-mode .product-name { color: #ede8e3; }
+body.dark-mode .section-title { color: #ede8e3; }
+body.dark-mode .user-pill { background: #2a2320; color: #ede8e3; }
