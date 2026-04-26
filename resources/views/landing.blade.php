@@ -48,6 +48,10 @@
                     @csrf
                     <button class="kc-btn-outline">Keluar</button>
                 </form>
+            @else
+                <a href="{{ route('login') }}" class="kc-btn-outline">
+                    Masuk
+                </a>
             @endauth
         </div>
     </div>
