@@ -37,12 +37,17 @@
                 <div class="user-pill">
                     <span>{{ auth()->user()->name }}</span>
                 </div>
+
+                @if(auth()->user()->role === 'admin')
+                    <a href="{{ route('admin.index') }}" class="kc-btn-outline">
+                        Dashboard
+                    </a>
+                @endif
+
                 <form action="{{ route('logout') }}" method="POST">
                     @csrf
                     <button class="kc-btn-outline">Keluar</button>
                 </form>
-            @else
-                <a href="{{ route('login') }}" class="kc-btn-primary">Masuk</a>
             @endauth
         </div>
     </div>
